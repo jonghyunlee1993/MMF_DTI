@@ -1,0 +1,34 @@
+dataset: 
+    name: "BIOSNAP" # Options: DAVIS, BindingDB, BIOSNAP, merged
+    missing: 0 # Options: 70, 80, 90, 95 (Only for BIOSNAP)
+    unseen: "No" # Options: No, drug, target
+    use_sampler: False # Options: True, False
+    use_enumeration: False # Options: True, False
+
+prot_length: 
+    teacher: 545
+    student: 545
+
+lambda:
+    learnable: True # Options: True, False
+    fixed_value: -1 # Options: Scalar value in [0, 1]
+
+prot_encoder:
+    hidden_size: 1024
+    num_hidden_layers: 2
+    num_attention_heads: 16
+    intermediate_size: 4096
+    hidden_act: "gelu"
+
+multimodality:
+    use_text_feat: True # Options: True, False
+    use_property: False # Options: True, False
+
+training_config:
+    batch_size: 32
+    num_workers: 16
+    epochs: 30
+    hidden_dim: 1024
+    learning_rate: 0.0001
+    device: 0
+    seed: -1
